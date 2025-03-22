@@ -21,7 +21,9 @@ export default function ProductDetailsScreen({ route }) {
         Packaging: ${packaging}
         Carbon Impact: ${carbonImpact}
         
-        Provide a brief, informative analysis of the product's environmental impact and suggestions for improvement.`;
+        Provide an alternative eco friendly product which exists in the market.
+        Provide the name of the product, the brand, and the price.
+        Provide the link to the product on the store.`;
 
       console.log('Generating analysis...');
       const text = await generateAnalysis(prompt);
