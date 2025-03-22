@@ -1,8 +1,12 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import dotenv from 'dotenv';
 
-const GEMINI_API_KEY = 'AIzaSyAPJOiiAj8MOvmdzXzFzyNc4X_oyjceTnc';
+// Load .env variables
+dotenv.config();
 
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+const geminiApiKey = process.env.GEMINI_API_KEY;
+
+const genAI = new GoogleGenerativeAI(geminiApiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
 export const generateAnalysis = async (prompt) => {
@@ -14,4 +18,4 @@ export const generateAnalysis = async (prompt) => {
     console.error('Gemini API Error:', error);
     throw error;
   }
-}; 
+};
